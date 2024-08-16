@@ -33,9 +33,8 @@ return {
         },
         v = {
           -- delete without copy
-          ["d"] = { "\"_d", desc = "delete without copy" },
-          ["<Del>"] = { "\"_d", desc = "delete without copy" },
-          ["<Ctrl-Del>"] = { "d", desc = "delete without copy" },
+          -- ["d"] = { "\"_d", desc = "delete without copy" },
+          -- ["<Del>"] = { "\"_d", desc = "delete without copy" },
 
           ["p"] = { "P", desc = "paste without copy" },
         },
