@@ -33,10 +33,10 @@ return {
         },
         v = {
           -- delete without copy
-          ["<Shift>d"] = { "d", desc = "delete with copy" },
-          ["d"] = { "\"_d", desc = "delete without copy" },
-          ["<Shift><Del>"] = { "d", desc = "delete with copy" },
-          ["<Del>"] = { "\"_d", desc = "delete without copy" },
+          -- ["<Shift>d"] = { "d", desc = "delete with copy" },
+          -- ["d"] = { "\"_d", desc = "delete without copy" },
+          -- ["<Shift><Del>"] = { "d", desc = "delete with copy" },
+          -- ["<Del>"] = { "\"_d", desc = "delete without copy" },
 
           ["p"] = { "P", desc = "paste without copy" },
         },
