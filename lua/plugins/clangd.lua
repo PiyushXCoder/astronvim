@@ -1,4 +1,4 @@
-return  {
+return {
   {
     "AstroNvim/astrolsp",
 --    ---@type AstroLSPOpts
@@ -27,17 +27,16 @@ return  {
       end
 
 
-
-      return {
-        config = {
+      -- extend our configuration table to have our new prolog server
+      opts.config = require("astrocore").extend_tbl(opts.config or {}, {
           clangd = {
             capabilities = {
               offsetEncoding = "utf-8",
             },
             cmd = cmd
           },
-        },
-      }
+        })
+
     end,
   },
   {
