@@ -34,3 +34,12 @@ git clone https://github.com/<your_user>/<your_repository> ~/.config/nvim
 ```shell
 nvim
 ```
+
+### Change default compiler while using Clangd
+
+create a `.nvim_lspconfig.lua` in root directory of the project
+``` lua
+return {
+  query_driver = "path to compiler"
+}
+```
