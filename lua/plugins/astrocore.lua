@@ -77,6 +77,8 @@ return {
         -- ["d"] = { "\"_d", desc = "delete without copy" },
         -- ["<Shift><Del>"] = { "d", desc = "delete with copy" },
         -- ["<Del>"] = { "\"_d", desc = "delete without copy" },
+        ["0"] = {"^", desc = "goto start of the text"},
+        ["^"] = {"0", desc = "goto start of the line"},
 
         ["p"] = { "P", desc = "paste without copy" },
       },
