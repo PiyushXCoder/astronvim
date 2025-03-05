@@ -4,5 +4,6 @@ return {
   priority = 1000,
   opts= {
     term_colors = true,
+    transparent_background = true
   }
 }
