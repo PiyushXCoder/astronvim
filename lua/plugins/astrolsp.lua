@@ -26,7 +26,24 @@ return {
           -- "go",
         },
         ignore_filetypes = { -- disable format on save for specified filetypes
-          "sql"
+          "sql",
+          "lua",
+          "ts",     -- TypeScript / Angular
+          "tsx",    -- TSX (TypeScript + JSX)
+          "js",     -- JavaScript
+          "jsx",    -- JSX
+          "html",   -- HTML
+          "css",    -- CSS
+          "less",   -- LESS
+          "scss",   -- SCSS
+          "md",     -- Markdown
+          "json",   -- JSON
+          "yml",    -- YAML
+          "yaml",   -- YAML alternative
+          "vue",    -- Vue
+          "graphql",-- GraphQL
+          "gql",    -- GraphQL alternative
+          "flow"    -- Flow
           -- "python",
         },
       },
