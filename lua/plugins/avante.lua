@@ -5,14 +5,17 @@ return {
   opts = {
     -- add any opts here
     -- for example
-    provider = "copilot",
-    gemini = {
-      endpoint = "https://models.inference.ai.azure.com/chat/completions",
-      model = "gpt-4o-copilot", -- your desired model (or use gpt-4o, etc.)
-      timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
-      temperature = 0,
-      max_tokens = 4096, -- Increase this to include reasoning tokens (for reasoning models)
-      --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+    providers = {
+      openai = {
+        endpoint = "https://models.inference.ai.azure.com/chat/completions",
+        model = "gpt-4o-copilot", -- your desired model (or use gpt-4o, etc.)
+        timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
+        extra_request_body = {
+          temperature = 0,
+          max_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
+          reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+        },
+      },
     },
     behaviour = {
       auto_suggestions = false, -- Experimental stage
