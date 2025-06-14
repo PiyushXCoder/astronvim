@@ -3,6 +3,11 @@ return {
   cmd = "Copilot",
   event = "InsertEnter",
   config = function()
+    if os.getenv("NOCOPILOT") then
+      vim.notify("Copilot is disabled by environment variable NOCOPILOT", vim.log.levels.WARN)
+      return
+    end
+
     local copilot = require("copilot")
     copilot.setup({
       enabled = true,
@@ -76,7 +81,7 @@ return {
         return true
       end,
       server = {
-        type = "nodejs", -- "nodejs" | "binary"
+        type = "binary", -- "nodejs" | "binary"
         custom_server_filepath = nil,
       },
       server_opts_overrides = {},
