@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- Customize Mason
 
@@ -24,6 +24,33 @@ return {
         "tree-sitter-cli",
 
         -- I use them personally
+        "bash-language-server",
+        "clangd",
+        "codelldb",
+        "copilot-language-server",
+        "css-lsp",
+        "dockerfile-language-server",
+        "eslint-lsp",
+        "gopls",
+        "htmx-lsp",
+        -- "java-debug-adapter",
+        -- "java-test",
+        -- "jdtls",
+        "json-lsp",
+        "lemminx",
+        "lua-language-server",
+        "luaformatter",
+        "markdown-oxide",
+        -- "phpactor",
+        "prettier",
+        "prisma-language-server",
+        "pyright",
+        "rust-analyzer",
+        "sqls",
+        "svelte-language-server",
+        "tailwindcss-language-server",
+        "taplo",
+        "yaml-language-server"
       },
     },
   },
