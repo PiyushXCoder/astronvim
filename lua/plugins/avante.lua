@@ -5,17 +5,18 @@ return {
   opts = {
     -- add any opts here
     -- for example
+    provider = "gemini", -- or "claude", "ollama", "mistral", "gemini", "llama3", "llama2", "codellama", "deepseek", "deepseek-coder", "deepseek-chat", "deepseek-vision", "deepseek-coder-vision", "deepseek-chat-vision"
     providers = {
-      openai = {
-        endpoint = "https://models.inference.ai.azure.com/chat/completions",
-        model = "gpt-4o-copilot", -- your desired model (or use gpt-4o, etc.)
-        timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
-        extra_request_body = {
-          temperature = 0,
-          max_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
-          reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
-        },
-      },
+      -- copilot = {
+      --   endpoint = "https://models.inference.ai.azure.com/chat/completions",
+      --   model = "gpt-4o-copilot", -- your desired model (or use gpt-4o, etc.)
+      --   timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
+      --   extra_request_body = {
+      --     temperature = 0,
+      --     max_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
+      --     reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+      --   },
+      -- },
     },
     behaviour = {
       auto_suggestions = false, -- Experimental stage
