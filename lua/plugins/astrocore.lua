@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
@@ -40,11 +40,13 @@ return {
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
+        shell = "/bin/fish",
         relativenumber = true, -- sets vim.opt.relativenumber
         number = true, -- sets vim.opt.number
         spell = false, -- sets vim.opt.spell
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
         wrap = false, -- sets vim.opt.wrap
+        mouse = "c"
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
@@ -62,6 +64,8 @@ return {
         -- navigate buffer tabs
         ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         ["[b"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
+        ["<C-S-j>"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
+        ["<C-S-k>"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
         -- mappings seen under group name "Buffer"
         ["<Leader>bd"] = {
@@ -73,12 +77,34 @@ return {
           desc = "Close buffer from tabline",
         },
 
+        -- run program 
+        ["<f10>"] = {
+          function()
+            vim.cmd("!./run.fish")
+          end,
+          desc = "Run program",
+        },
+
+        ["0"] = {"^", desc = "goto start of the text"},
+        ["^"] = {"0", desc = "goto start of the line"},
+
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
         -- ["<Leader>b"] = { desc = "Buffers" },
 
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
+      },
+      v = {
+        -- delete without copy
+        -- ["<Shift>d"] = { "d", desc = "delete with copy" },
+        -- ["d"] = { "\"_d", desc = "delete without copy" },
+        -- ["<Shift><Del>"] = { "d", desc = "delete with copy" },
+        -- ["<Del>"] = { "\"_d", desc = "delete without copy" },
+        ["0"] = {"^", desc = "goto start of the text"},
+        ["^"] = {"0", desc = "goto start of the line"},
+
+        ["p"] = { "P", desc = "paste without copy" },
       },
     },
   },

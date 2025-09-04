@@ -1,5 +1,7 @@
 # AstroNvim Template
 
+> This is a personal configuration used by me.
+
 **NOTE:** This is for AstroNvim v5+
 
 A template for getting started with [AstroNvim](https://github.com/AstroNvim/AstroNvim)
@@ -31,4 +33,13 @@ git clone https://github.com/<your_user>/<your_repository> ~/.config/nvim
 
 ```shell
 nvim
+```
+
+### Change default compiler while using Clangd
+
+create a `.nvim_lspconfig.lua` in root directory of the project
+``` lua
+return {
+  query_driver = "path to compiler"
+}
 ```

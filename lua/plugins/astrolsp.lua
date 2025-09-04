@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
 -- Configuration documentation can be found with `:h astrolsp`
@@ -13,8 +13,9 @@ return {
     -- Configuration table of features provided by AstroLSP
     features = {
       codelens = true, -- enable/disable codelens refresh on start
-      inlay_hints = false, -- enable/disable inlay hints on start
+      inlay_hints = true, -- enable/disable inlay hints on start
       semantic_tokens = true, -- enable/disable semantic token highlighting
+      signature_help = true
     },
     -- customize lsp formatting options
     formatting = {
@@ -25,6 +26,24 @@ return {
           -- "go",
         },
         ignore_filetypes = { -- disable format on save for specified filetypes
+          "sql",
+          "lua",
+          "ts",     -- TypeScript / Angular
+          "tsx",    -- TSX (TypeScript + JSX)
+          "js",     -- JavaScript
+          "jsx",    -- JSX
+          "html",   -- HTML
+          "css",    -- CSS
+          "less",   -- LESS
+          "scss",   -- SCSS
+          "md",     -- Markdown
+          "json",   -- JSON
+          "yml",    -- YAML
+          "yaml",   -- YAML alternative
+          "vue",    -- Vue
+          "graphql",-- GraphQL
+          "gql",    -- GraphQL alternative
+          "flow"    -- Flow
           -- "python",
         },
       },
