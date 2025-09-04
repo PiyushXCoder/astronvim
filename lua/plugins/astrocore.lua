@@ -77,6 +77,14 @@ return {
           desc = "Close buffer from tabline",
         },
 
+        -- run program 
+        ["<f10>"] = {
+          function()
+            vim.cmd("!./run.fish")
+          end,
+          desc = "Run program",
+        },
+
         ["0"] = {"^", desc = "goto start of the text"},
         ["^"] = {"0", desc = "goto start of the line"},
 
