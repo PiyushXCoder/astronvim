@@ -26,7 +26,11 @@ end
 require "lazy_setup"
 require "polish"
 
+-- I use neovide as clippy notes
 if vim.g.neovide then
-    -- Put anything you want to happen only in Neovide here
-  vim.o.guifont = "Fira Code:h13"
+  vim.o.guifont = "Fira Code:h26"
+  vim.o.showtabline = 0
+  vim.o.laststatus = 0
+  vim.o.number = false 
+  vim.o.relativenumber = false
 end
