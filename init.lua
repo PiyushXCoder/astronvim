@@ -28,7 +28,7 @@ require "polish"
 
 -- I use neovide as clippy notes
 if vim.g.neovide then
-  vim.o.guifont = "Fira Code:h26"
+  vim.o.guifont = "Fira Code:h13"
   vim.o.showtabline = 0
   vim.o.laststatus = 0
   vim.o.number = false 
