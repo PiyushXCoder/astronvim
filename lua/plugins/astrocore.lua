@@ -46,6 +46,8 @@ return {
         spell = false, -- sets vim.opt.spell
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
         wrap = false, -- sets vim.opt.wrap
+        exrc = true, -- sets vim.opt.exrc
+        secure = true, -- sets vim.opt.secure
         -- mouse = "c"
       },
       g = { -- vim.g.<key>
