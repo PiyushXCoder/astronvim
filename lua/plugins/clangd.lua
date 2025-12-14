@@ -14,6 +14,7 @@ return {
 
       local cmd = {
         "clangd",
+        "--log=error",
         "--enable-config",
         "--clang-tidy",
         "--all-scopes-completion=false",
