@@ -42,12 +42,7 @@ return {
         },
       },
       filetypes = {
-        yaml = false,
-        markdown = false,
-        help = false,
-        gitcommit = false,
-        gitrebase = false,
-        hgcommit = false,
+        gpg = false,
         svn = false,
         cvs = false,
         ["."] = false,
@@ -67,7 +62,7 @@ return {
       root_dir = function()
         return vim.fs.dirname(vim.fs.find(".git", { upward = true })[1])
       end,
-      should_attach = function(_, _)
+      should_attach = function(bufnr, _)
         if not vim.bo.buflisted then
           -- vim.notify("not attaching, buffer is not 'buflisted'", vim.log.levels.DEBUG)
           return false
@@ -75,6 +70,11 @@ return {
 
         if vim.bo.buftype ~= "" then
           vim.notify("not attaching, buffer 'buftype' is " .. vim.log.levels.DEBUG)
+          return false
+        end
+
+        local name = vim.api.nvim_buf_get_name(bufnr)
+        if name:match("%.gpg$") then
           return false
         end
 

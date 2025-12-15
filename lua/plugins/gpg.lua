@@ -1,0 +1,3 @@
+return {
+   "benoror/gpg.nvim",
+}
