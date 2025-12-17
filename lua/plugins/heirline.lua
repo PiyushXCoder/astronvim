@@ -26,6 +26,12 @@ return {
           -- relative path
           local path = vim.fn.expand("%:.")
 
+          local max_width = vim.o.columns
+          local avail_width = math.max(max_width * 0.45 , 50) -- leave space for other components
+          if string.len(path) > avail_width then
+            path = "..." .. string.sub(path, -avail_width + 3)
+          end
+
           -- 🔑 explicit spacing between elements
           local parts = {}
           if icon ~= "" then table.insert(parts, icon) end
