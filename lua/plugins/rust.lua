@@ -2,17 +2,14 @@ return {
   {
     "AstroNvim/astrolsp",
     opts = function(_, opts)
-      opts.config = require("astrocore").extend_tbl(opts.config or {}, {
-        rust_analyzer = {
-          settings = {
-            ["rust-analyzer"] = {
-              cargo = {
-                allTargets = true,
-              },
-            },
-          },
-        },
-      })
+      -- opts.config = require("astrocore").extend_tbl(opts.config or {}, {
+      --   rust_analyzer = {
+      --     settings = {
+      --       ["rust-analyzer"] = {
+      --       },
+      --     },
+      --   },
+      -- })
     end,
   },
 }
