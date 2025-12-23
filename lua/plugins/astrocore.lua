@@ -88,7 +88,10 @@ return {
         },
 
         ["0"] = {"^", desc = "goto start of the text"},
+        ["00"] = {"0", desc = "goto start of the line"},
         ["^"] = {"0", desc = "goto start of the line"},
+
+        ["<C-`>"] = { ":ToggleTerm<CR>", desc = "Toggle terminal" },
 
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
@@ -108,6 +111,10 @@ return {
 
         ["p"] = { "P", desc = "paste without copy" },
       },
+      t = {
+        -- setting a mapping to false will disable it
+        ["<Esc><Esc>"] = { "<C-\\><C-n>", desc = "Exit terminal mode" }
+      }
     },
   },
 }
