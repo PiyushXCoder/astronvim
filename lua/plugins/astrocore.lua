@@ -82,7 +82,7 @@ return {
         -- run program 
         ["<f10>"] = {
           function()
-            vim.cmd("!./run.fish")
+            vim.cmd("!fish run.fish")
           end,
           desc = "Run program",
         },
