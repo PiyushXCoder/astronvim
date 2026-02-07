@@ -31,7 +31,12 @@ return {
     -- (If you wish to replace, use `opts.sources = {}` instead of the `list_insert_unique` function)
     opts.sources = require("astrocore").list_insert_unique(opts.sources, {
       -- Set a formatter
-      require("none-ls.diagnostics.eslint_d").with({ condition = has_eslint_config }),
+      -- require("none-ls.diagnostics.eslint_d").with({ 
+      --   condition = has_eslint_config,
+      --   env = {
+      --     NODE_OPTIONS = "--no-warnings",
+      --   },
+      -- }),
       -- null_ls.builtins.formatting.stylua,
       -- null_ls.builtins.formatting.prettier,
     })
