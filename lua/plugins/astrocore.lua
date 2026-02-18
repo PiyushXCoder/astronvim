@@ -4,6 +4,40 @@
 -- Configuration documentation can be found with `:h astrocore`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
 --       as this provides autocomplete and documentation while editing
+--
+
+function copy_with_path_and_lines()
+  local path = vim.fn.expand("%")
+  local start_line = vim.fn.line("v")
+  local end_line = vim.fn.line(".")
+
+  if vim.fn.mode() == "n" then
+    start_line = vim.fn.line(".")
+    end_line = start_line
+  end
+
+  if start_line > end_line then
+    start_line, end_line = end_line, start_line
+  end
+
+  local lines = vim.fn.getline(start_line, end_line)
+  local content
+
+  if start_line == end_line then
+    content = string.format("%s:%d: %s", path, start_line, lines[1])
+  else
+    content = string.format(
+      "%s:%d-%d:\n%s",
+      path,
+      start_line,
+      end_line,
+      table.concat(lines, "\n")
+    )
+  end
+
+  vim.fn.setreg("+", content)
+  -- vim.notify("Copied with path + line info 🚀")
+end
 
 ---@type LazySpec
 return {
@@ -93,21 +127,24 @@ return {
 
         ["<C-`>"] = { ":ToggleTerm<CR>", desc = "Toggle terminal" },
 
-        ["<Leader>fS"] = {":Telescope git_status<CR>", desc = "Git status"}
+        ["<Leader>fS"] = {":Telescope git_status<CR>", desc = "Git status"},
 
-        -- tables with just a `desc` key will be registered with which-key if it's installed
-        -- this is useful for naming menus
-        -- ["<Leader>b"] = { desc = "Buffers" },
+        ["<C-S-y>"] = {
+          copy_with_path_and_lines,
+          desc = "Copy line with relative path",
+        },
 
-        -- setting a mapping to false will disable it
-        -- ["<C-S>"] = false,
+        ["0"] = {"^", desc = "goto start of the text"},
+        ["^"] = {"0", desc = "goto start of the line"},
+
+        ["p"] = { "P", desc = "paste without copy" },
       },
       v = {
-        -- delete without copy
-        -- ["<Shift>d"] = { "d", desc = "delete with copy" },
-        -- ["d"] = { "\"_d", desc = "delete without copy" },
-        -- ["<Shift><Del>"] = { "d", desc = "delete with copy" },
-        -- ["<Del>"] = { "\"_d", desc = "delete without copy" },
+        ["<C-S-y>"] = {
+          copy_with_path_and_lines,
+          desc = "Copy selection with relative path",
+        },
+
         ["0"] = {"^", desc = "goto start of the text"},
         ["^"] = {"0", desc = "goto start of the line"},
 
