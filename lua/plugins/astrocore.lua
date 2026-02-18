@@ -93,6 +93,8 @@ return {
 
         ["<C-`>"] = { ":ToggleTerm<CR>", desc = "Toggle terminal" },
 
+        ["<Leader>fS"] = {":Telescope git_status<CR>", desc = "Git status"}
+
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
         -- ["<Leader>b"] = { desc = "Buffers" },
