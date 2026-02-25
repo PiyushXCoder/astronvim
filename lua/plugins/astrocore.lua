@@ -136,8 +136,6 @@ return {
 
         ["0"] = {"^", desc = "goto start of the text"},
         ["^"] = {"0", desc = "goto start of the line"},
-
-        ["p"] = { "P", desc = "paste without copy" },
       },
       v = {
         ["<C-S-y>"] = {
@@ -147,8 +145,6 @@ return {
 
         ["0"] = {"^", desc = "goto start of the text"},
         ["^"] = {"0", desc = "goto start of the line"},
-
-        ["p"] = { "P", desc = "paste without copy" },
       },
       t = {
         -- setting a mapping to false will disable it
