@@ -117,9 +117,9 @@ return {
     vim.keymap.set("n", "+", "<C-a>", { desc = "Increment under cursor", noremap = true })
     vim.keymap.set("n", "-", "<C-x>", { desc = "Decrement under cursor", noremap = true })
 
-    vim.keymap.set({ "n", "v" }, "<leader>ax", function() opencode.prompt("explain") end, { desc = "Explain code" })
-    vim.keymap.set({ "n", "v" }, "<leader>af", function() opencode.prompt("fix") end, { desc = "Fix diagnostics" })
-    vim.keymap.set({ "n", "v" }, "<leader>ar", function() opencode.prompt("review") end, { desc = "Review code" })
-    vim.keymap.set({ "n", "v" }, "<leader>at", function() opencode.prompt("test") end, { desc = "Generate tests" })
+    vim.keymap.set({ "n", "v" }, "<leader>ax", function() opencode.prompt("explain", { submit = true }) end, { desc = "Explain code" })
+    vim.keymap.set({ "n", "v" }, "<leader>af", function() opencode.prompt("fix", { submit = true }) end, { desc = "Fix diagnostics" })
+    vim.keymap.set({ "n", "v" }, "<leader>ar", function() opencode.prompt("review", { submit = true }) end, { desc = "Review code" })
+    vim.keymap.set({ "n", "v" }, "<leader>at", function() opencode.prompt("test", { submit = true }) end, { desc = "Generate tests" })
   end,
 }

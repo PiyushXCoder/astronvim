@@ -17,6 +17,18 @@ return {
       semantic_tokens = true, -- enable/disable semantic token highlighting
       signature_help = true
     },
+    diagnostics = {
+      update_in_insert = false,
+      virtual_text = {
+        prefix = "●",
+        severity = {
+          min = vim.diagnostic.severity.WARN,
+        },
+      },
+      signs = true,
+      underline = true,
+      severity_sort = true,
+    },
     -- customize lsp formatting options
     formatting = {
       -- control auto formatting on save
@@ -36,7 +48,6 @@ return {
           "html",   -- HTML
           "css",    -- CSS
           "less",   -- LESS
-          "scss",   -- SCSS
           "md",     -- Markdown
           "json",   -- JSON
           "yml",    -- YAML
@@ -66,6 +77,27 @@ return {
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      rust_analyzer = {
+        settings = {
+          ["rust-analyzer"] = {
+            checkOnSave = {
+              command = "clippy",
+              extraArgs = { "--all-targets", "--all-features" },
+            },
+            diagnostics = {
+              enable = true,
+              disabled = { "inactive-code" },
+            },
+            inlayHints = {
+              enable = true,
+              closureReturnTypeHints = { enable = "with_block" },
+              lifetimeElisionHints = { enable = "skip_trivial" },
+              parameterHints = { enable = true },
+              typeHints = { enable = true },
+            },
+          },
+        },
+      },
     },
     -- customize how language servers are attached
     handlers = {

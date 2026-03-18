@@ -5,7 +5,7 @@ return {
   dependencies = { "williamboman/mason.nvim" },
   lazy = false,
   init = function()
-    vim.g.copilot_nes_debounce = 800
+    vim.g.copilot_nes_debounce = 400
     vim.lsp.enable "copilot_ls"
 
     -- Suppress noisy "operation was aborted" network errors (harmless, caused by debounce)
