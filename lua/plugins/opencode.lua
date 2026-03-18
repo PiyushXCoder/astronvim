@@ -99,7 +99,15 @@ return {
     vim.api.nvim_create_autocmd({ "VimLeavePre" }, {
       callback = function()
         pcall(opencode.stop)
-        vim.fn.system("pkill -9 -f 'opencode --port' 2>/dev/null")
+        local nvim_pid = vim.fn.getpid()
+        local pid = vim.fn.systemlist("pgrep -P " .. nvim_pid)
+        for _, p in ipairs(pid) do
+          local cmd = vim.fn.systemlist("ps -p " .. p .. " -o comm=")[1]
+          if cmd and cmd:match("opencode") then
+            vim.fn.system("kill -9 " .. p)
+            break
+          end
+        end
       end,
     })
 
