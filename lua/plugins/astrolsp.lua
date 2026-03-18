@@ -80,10 +80,7 @@ return {
       rust_analyzer = {
         settings = {
           ["rust-analyzer"] = {
-            checkOnSave = {
-              command = "clippy",
-              extraArgs = { "--all-targets", "--all-features" },
-            },
+            checkOnSave = true,
             diagnostics = {
               enable = true,
               disabled = { "inactive-code" },
