@@ -13,12 +13,13 @@ return {
 
     opts.ensure_installed = opts.ensure_installed or {}
     opts.ensure_installed = vim.list_extend(opts.ensure_installed, {
-      ensure_installed = {
-        "lua",
-        "vim",
-        "rust",
-        -- add more arguments for adding more treesitter parsers
-      },
+      "lua",
+      "vim",
+      "rust",
+      "html",
+      "javascript",
+      "typescript",
+      "tsx",
     });
   end,
 }

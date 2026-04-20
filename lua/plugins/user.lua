@@ -35,6 +35,7 @@ return {
   },
 
   -- You can disable default plugins as follows:
+
   { "max397574/better-escape.nvim", enabled = false },
 
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
@@ -61,12 +62,11 @@ return {
           :with_pair(cond.not_before_regex("xxx", 3))
           :with_move(cond.none())
           :with_del(cond.not_after_regex "xx")
-          :with_cr(cond.none()),
-        Rule("a", "a", "-vim"),
-        Rule(" ", " "):with_pair(function(options)
-          local pair = options.line:sub(options.col - 1, options.col)
-          return vim.tbl_contains({ "()", "[]", "{}" }, pair)
-        end),
+          :with_cr(cond.none())
+          :with_pair(function(options)
+            local pair = options.line:sub(options.col - 1, options.col)
+            return vim.tbl_contains({ "()", "[]", "{}" }, pair)
+          end),
         Rule("( ", " )")
           :with_pair(function() return false end)
           :with_move(function(options) return options.prev_char:match(".%)") ~= nil end)
